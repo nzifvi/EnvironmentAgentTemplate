@@ -11,12 +11,13 @@ class Environment:
         self._agents   = []
 
     def addAgent(self, agent, pos) -> None:
-        self._mjSpec.attach(
-            agent,
-            prefix = f"agent{len(self._agents)}",
-            pos = list(pos)
+        attachmentSite = self._mjSpec.find_site("attachmentSite")
+        attachmentSite.attach_body(
+            agent.getSpec().worldbody,
+            f"agent{len(self._agents)}",
+            ""
         )
-        (self._agents.append(agent))
+        self._agents.append(agent)
 
     def compile(self) -> None:
         self._mjModel = self._mjSpec.compile()

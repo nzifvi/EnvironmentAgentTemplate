@@ -30,10 +30,12 @@ class Environment:
                 data  = self._mjData
             )
 
-    def runSimulation(self, simFunction = None) -> None:
+    def runSimulation(self, showLeftUI:bool = True, showRightUI:bool = True, simFunction = None) -> None:
         viewer = mujoco.viewer.launch_passive(
             self._mjModel,
             self._mjData,
+            show_right_ui = showRightUI,
+            show_left_ui  = showLeftUI,
         )
         while viewer.is_running():
             if simFunction is not None:

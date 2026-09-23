@@ -3,7 +3,7 @@ import mujoco.viewer
 
 class Environment:
     def __init__(self, path:str, timeStep:float):
-        self._mjSpec  = mujoco.MjSpec(path)
+        self._mjSpec  = mujoco.MjSpec.from_file(path)
         self._mjModel = None
         self._mjData  = None
 
@@ -42,3 +42,4 @@ class Environment:
                 self._mjModel,
                 self._mjData,
             )
+            viewer.sync()

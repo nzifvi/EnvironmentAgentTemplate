@@ -1,0 +1,9 @@
+Within the assets directory, there must be:
+1) A fully functional agent.xml file with:
+    - A functional kinematic body
+2) A fully functional environment.xml file with:
+    - An attachment site where the agent must be attached.
+
+
+NOTE: if agent's kinematic tree is expected to move independently of the environment's kinematic tree then:
+1) Ensure that the base body of the agent's kinematic tree has a freejoint element.
